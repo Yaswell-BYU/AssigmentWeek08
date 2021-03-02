@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="img/food-delivery.png" alt="logo">
+        <h1>You CHOOSE we GO</h1>
+    </header>
+    <form action="" class="form" id="form">
+       <div class="formulario">
+            <!--Firts name-->
+        <div class="formulario__grupo" id="grupo_Nombre">
+            <label for="Fname" class="formulario__label"name="Fname"> First Name</label>
+            <div class="formulario__grupo-input">
+                <input type="text" id="first_name" class="formulario__input" placeholder="Jhon">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">The name should containe only letters.</p>
+        </div>
+        
+
+        <!--Last Name-->
+        <div class="formulario__grupo" id="grupo_Apellido">
+            <label for="Lname" class="formulario__label">Last Name</label>
+            <div class="formulario__grupo-input">
+                <input type="text" id="last_name" class="formulario__input" placeholder="Smith">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">The last name should containe only letters.</p>
+        </div>
+
+        <!--Address-->        
+        <div class="formulario__grupo" id="grupo_direccion">
+            <label for="address" class="formulario__label">Address</label>
+            <div class="formulario__grupo-input">
+                <input type="text" id="address" class="formulario__input" placeholder="street address, city, state, and zip">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">The address should be street address, city, state, and zip.</p>
+        </div>
+        <!--Phone-->   
+        <div class="formulario__grupo" id="grupo__telefono">
+            <label for="phone" class="formulario__label">Phone</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="phone" id="phone" placeholder="208-555-5555">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">The phone number can only have numbers and with a maximun of 14 digits.</p>
+        </div>
+     
+       </div>
+       
+        <div class="options" >
+            <div class="card" id="item_0" >
+                <input type="checkbox" id="chb_0" onclick="prueba()"/><br>
+                <img src="img/hamburguesa.png" onclick="prueba()" alt="item_0">
+                <h4>Hamburguesa</h4>
+                Price $<span id="item_0_Price">5</span>
+                Quantity <input type="number"  class="Cqu" value="1" id="Iquantity">
+            </div>
+            <div class="card" id="item_1">
+                <input type="checkbox" onclick="prueba()" id="chb_1"><br>
+                <img src="img/pizza.png" alt="item_">
+                <h4>Pizza</h4>
+                Price $<span id="item_1_Price">10</span>
+                Quantity <input type="number" id="Iquantity1" class="Cqu" value="1">
+            </div>
+            <div class="card" id="item_2" onchange="calculate()">
+                <input type="checkbox" onclick="prueba()" id="chb_2"><br>
+                <img src="img/pollo.png" alt="item_0">
+                <h4>Fried Chicken</h4>
+                Price $<span id="item_2_Price">7</span>
+                Quantity <input type="number" id="Iquantity2" class="Cqu" value="1">
+            </div>
+            <div class="card" id="item_3">
+                <input type="checkbox" onclick="prueba()" id="chb_3"><br>
+                <img src="img/drink.png" alt="item_0">
+                <h4>Soda</h4>
+                Price $<span id="item_3_Price">1</span>
+                Quantity <input type="number" id="Iquantity3" class="Cqu" value="1">
+                
+            </div>
+        
+        </div>
+        <br>
+        <h2>Total</h2> <span id="Total"></span>
+        <hr>
+        <h3>Payment Method</h3>
+        
+        <div class="paymentmethod">
+        <input type="radio" id="card" name="card" > <Label> Visa</Label>
+        <input type="radio" id="card" name="card" > <label > Mastercard</label>
+        <input type="radio" id="card" name="card" ><label >American express</label>
+        </div>
+        
+        
+        <div class="formulario">
+            
+        <!--Credit Card-->
+        <div class="formulario__grupo" id="grupo__creditcard">
+            <label for="credit_card" class="formulario__label">Credit Card #</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="credit_card" id="credit_card" placeholder="XXXX XXXX XXXX XXXX">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">The Credit card number must be 16 numbers.</p>
+        </div>
+        <!--Expiration Date-->
+        <div class="formulario__grupo" id="grupo__expdate">
+            <label for="exp_date" class="formulario__label">Expiration date</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="credit_card" id="exp_date" placeholder="01/2020">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">The Expiration must be numbers if the fallowing format MM/YYYY</p>
+        </div>
+        </div>
+
+        <div class="formulario__mensaje" id="formulario__mensaje">
+            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Please fill the form correctly </p>
+        </div>
+
+       <br>
+       <div class="buttons">
+             <!--Reset-->        
+         <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="button" class="formulario__btn" id="reset" onclick="refrescar()">Reset</button>
+         </div>
+      
+        <!--Submit-->        
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" class="formulario__btn">Submit</button>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Submited!</p>
+        </div>
+       </div>
+
+       
+
+        
+
+    </form>
+    <script src="validation.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>
